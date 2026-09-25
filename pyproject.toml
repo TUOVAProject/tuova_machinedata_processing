@@ -1,0 +1,19 @@
+[project]
+name = "tuova-machinedata-processing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Mika Leskinen", email = "mika.leskinen@savonia.fi" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "psycopg>=3.3.6",
+]
+
+[project.scripts]
+tuova-machinedata-processing = "tuova_machinedata_processing:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"

@@ -4,6 +4,8 @@ import psycopg
 from tuova_machinedata_processing import postgres
 from tuova_machinedata_processing import data_processor
 
+# NOTE: this thing runs the whole process
+
 """
 import logging
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s %(message)s")
@@ -11,6 +13,7 @@ logging.getLogger("psycopg").setLevel(logging.DEBUG)
 """
 
 def run(date=None, dry_run=False):
+    print(f"process - start: dry_run={dry_run}")
     opts = None
     with open("./config.json") as f:
         opts = json.loads(f.read())

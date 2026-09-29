@@ -93,7 +93,6 @@ def update_data(opts={}, newdata=None, dry_run=False):
         with pg_client.cursor() as cur:
             # guess this is not needed here but hey
             cur.execute("SET timezone TO 'Europe/Helsinki'")
-
         
             # bulk update
             cur.executemany("""

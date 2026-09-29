@@ -35,8 +35,7 @@ def transform(opts={}, data=None):
                     "work_id": from_row["work_id"],
                     "article_id": from_row["article_id"],
                     "user_id": from_row["user_id"],
-                    "program_name": from_row["program_name"],
-                    "erp_id": from_row["erp_id"]
+                    "machine_event_id": to_row["machine_event_id"], # machine event id for update WHERE
                 }
                 updated_rows.append(to_row | newdata)
 

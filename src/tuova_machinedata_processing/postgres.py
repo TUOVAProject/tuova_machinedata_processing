@@ -80,7 +80,7 @@ def update_data(opts={}, newdata=None, dry_run=False):
     # return: true|false
     print("postgres - update_data")
 
-    if(newdata == None):
+    if newdata == None or len(newdata) <= 0:
         print("postgres - update_data: no newdata")
         return False
     

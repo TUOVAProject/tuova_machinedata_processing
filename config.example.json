@@ -1,0 +1,15 @@
+{
+  "postgres": {
+    "host": "POSTGRES_HOST",
+    "port": "POSTGRES_PORT",
+    "user": "POSTGRES_USER",
+    "password": "POSTGRES_PASS",
+    "dbname": "POSTGRES_DBNAME"
+  },
+  "workcenter_ids": ["WORKCENTER_ID"],
+  "from_event_type_ids": [1],
+  "from_source_ids": [1],
+  "to_source_ids": [2, 3],
+  "excluded_to_event_types": [17],
+  "check_start_only": false
+}

@@ -2,14 +2,17 @@ import psycopg
 import logging
 
 def get_data(opts={}):
-    # return {"from_data": [], "to_data": []}
+    # return: {"from_data": [], "to_data": []}
     print("postgres - get_data...")
 
+    # use client from opts
     pg_client:psycopg.Connection = opts["pg_client"]
 
-    # fetch all [from] events as per config
     with pg_client.cursor() as cur:
+        # guess this handles the timezone weirdness
         cur.execute("SET timezone TO 'Europe/Helsinki'")
+
+        # fetch erp rows
         from_data = cur.execute("""
             SELECT 
                 source_id,
@@ -40,7 +43,7 @@ def get_data(opts={}):
             )
         ).fetchall()
 
-        # fetch all [to] events that are missing specific info as per config
+        # fetch machine events that are missing erp info
         to_data = cur.execute("""
             SELECT
                 source_id,
@@ -68,8 +71,14 @@ def get_data(opts={}):
         )).fetchall()
 
         print(f"postgres - get_data: {len(to_data)} rows to update from {len(from_data)} rows")
+
+        # return erp rows and machine event rows
         return {"from_data": from_data, "to_data": to_data}
 
 
-def update_data(opts={}, new_data=None):
-    print("postgres - update_data: TODO")
+def update_data(opts={}, newdata=None):
+    # accept: [{}]
+    # return: true|false
+    print("postgres - update_data")
+
+    # 

@@ -27,10 +27,14 @@ def main():
     opts["start_at"] = start_at
     opts["end_at"] = end_at
 
-    # here's the plan:
+    # LOGIK!
+    
+    # fetch
     data = postgres.get_data(opts=opts)
-    new_data = data_processor.transform(opts=opts, data=data)
-    postgres.update_data(opts=opts, new_data=new_data)
+    # transform
+    newdata = data_processor.transform(opts=opts, data=data)
+    # update
+    postgres.update_data(opts=opts, newdata=newdata)
 
 
 if __name__ == "__main__":

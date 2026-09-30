@@ -63,7 +63,7 @@ Create the file `./config.json` with the following (`cp ./config.example.json ./
 git clone
 uv sync
 
-# single run (adjust date in the file as needed):
+# single run (defaults to the previous day, adjust date in the file as needed (use "YYYY-MM-DD")):
 python3 ./do_the_thing.py
 ```
 

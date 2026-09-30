@@ -6,4 +6,4 @@ def do_the_thing(date=None, dry_run=False):
     process.run(date=date, dry_run=dry_run)
 
 if __name__ == "__main__":
-    do_the_thing(date=None, dry_run=True)
+    do_the_thing(date="2026-09-28", dry_run=True)

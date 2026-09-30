@@ -12,10 +12,10 @@ logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s %(mes
 logging.getLogger("psycopg").setLevel(logging.DEBUG)
 """
 
-def run(date=None, dry_run=False):
+def run(date=None, dry_run=False, config_path="./config.json"):
     print(f"process - start: dry_run={dry_run}")
     opts = None
-    with open("./config.json") as f:
+    with open(config_path) as f:
         opts = json.loads(f.read())
     if opts is None:
         print("main - err: no opts")

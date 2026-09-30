@@ -79,8 +79,9 @@ python3 ./do_the_thing.py
 _(this part assumes you have an Apache Airflow server running and able to access the venv path)_
 
 5. Create an Airflow Variable (via GUI or CLI) called `MACHINEDATA_PROCESSING_PYTHON_EXEC_PATH` with path to the python executable in the venv, e.g. `/whatever/venv/bin/python`
-6. Copy the DAG file (`machinedata_processing_dag.py`) to your Airflow instance.
-7. Profit.
+6. Create another Airflow Variable called `MACHINEDATA_PROCESSING_CONFIG_PATH` with path to the `config.json` in the venv, e.g. `/whatever/config.json`
+7. Copy the DAG file (`machinedata_processing_dag.py`) to your Airflow instance.
+8. Profit.
 
 ## Notes
 

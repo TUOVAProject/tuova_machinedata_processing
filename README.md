@@ -92,3 +92,23 @@ If nothing in this README (or the code) makes sense, feel free to improve.
 ## Licence
 
 See [LICENCE.md](LICENCE.md)
+
+## Additonal Information
+
+### The TUOVA Project
+
+- https://tuova.savonia.fi
+- https://tuovaproject.github.io/
+
+### The data model ("Tuotantotiedon tietomalli")
+
+- https://github.com/TUOVAProject/tuotantotiedon-tietomalli
+- https://tuovaproject.github.io/tuotantotiedon-tietomalli/
+
+### Sensor data collection system
+
+- https://github.com/TUOVAProject/tuova-iot
+
+### Sensor data ETL process
+
+- https://github.com/TUOVAProject/tuova-sensor-etl

@@ -2,7 +2,7 @@
 
 > ## IMPORTANT!
 >
-> This repository was created as part of the TUOVA Project (see https://tuova.savonia.fi and https://tuovaproject.github.io/). Most of the information provided here assumes some familiarity with the data model ("Tuotantotiedon tietomalli") also developed during the TUOVA Project (see https://github.com/TUOVAProject/tuotantotiedon-tietomalli and https://tuovaproject.github.io/tuotantotiedon-tietomalli/). It is also assumed that a PostgreSQL database with the data model schema is already deployed.
+> This repository was created as part of the TUOVA Project (see https://tuova.savonia.fi and https://tuovaproject.github.io/). Some of the information presented here might assume familiarity with other repositories created during the course of the project. For more details on those, see the "Additional Information" section at the bottom of this README.
 >
 > **Everything is provided as-is, use at your own risk.**
 >
@@ -28,25 +28,29 @@ This thing does the following:
 
 An Apache Airflow DAG is included, but since the whole process is done in one go in `process.py`, the DAG is more like a wrapper of sorts.
 
+## Prerequisites
+
+- It is assumed that a PostgreSQL database with the data model schema is already deployed (see "Additional Information").
+
 ## Config
 
 Create the file `./config.json` with the following (`cp ./config.example.json ./config.json`):
 
 ```json
 {
-  "postgres": {
-    "host": "POSTGRES_HOST",
-    "port": "POSTGRES_PORT",
-    "user": "POSTGRES_USER",
-    "password": "POSTGRES_PASS",
-    "dbname": "POSTGRES_DBNAME"
-  },
-  "workcenter_ids": ["WORKCENTER_ID"],
-  "from_event_type_ids": [1],
-  "from_source_ids": [1],
-  "to_source_ids": [2, 3],
-  "excluded_to_event_types": [17],
-  "check_start_only": false
+    "postgres": {
+        "host": "POSTGRES_HOST",
+        "port": "POSTGRES_PORT",
+        "user": "POSTGRES_USER",
+        "password": "POSTGRES_PASS",
+        "dbname": "POSTGRES_DBNAME"
+    },
+    "workcenter_ids": ["WORKCENTER_ID"],
+    "from_event_type_ids": [1],
+    "from_source_ids": [1],
+    "to_source_ids": [2, 3],
+    "excluded_to_event_types": [17],
+    "check_start_only": false
 }
 ```
 
@@ -56,8 +60,8 @@ Create the file `./config.json` with the following (`cp ./config.example.json ./
 - `to_source_ids`: only update machine event rows where `source_id` is any of these (here `2` is for machine API data and `3` is for external sensor data)
 - `excluded_to_event_types`: only update machine event rows where `event_type_id` is _*NOT*_ one of these (here `17` is for daily summary entries)
 - `check_start_only`:
-  - `true` = only update machine event rows where the whole event duration (from `start_at` to `end_at`) fits the stamping period
-  - `false` = update machine event rows where `start_at` is within the ERP stamping period, don't care about `end_at`.
+    - `true` = only update machine event rows where the whole event duration (from `start_at` to `end_at`) fits the stamping period
+    - `false` = update machine event rows where `start_at` is within the ERP stamping period, don't care about `end_at`.
 
 ## Dev Setup
 
@@ -93,7 +97,7 @@ If nothing in this README (or the code) makes sense, feel free to improve.
 
 See [LICENCE.md](LICENCE.md)
 
-## Additonal Information
+## Additional Information
 
 ### The TUOVA Project
 
@@ -105,10 +109,22 @@ See [LICENCE.md](LICENCE.md)
 - https://github.com/TUOVAProject/tuotantotiedon-tietomalli
 - https://tuovaproject.github.io/tuotantotiedon-tietomalli/
 
+### On-premises server environment
+
+- https://github.com/TUOVAProject/tuova_on_prem_server
+
 ### Sensor data collection system
 
 - https://github.com/TUOVAProject/tuova-iot
 
+### Energy analyzer data collection system
+
+- https://github.com/TUOVAProject/tuova_energymeter
+
 ### Sensor data ETL process
 
 - https://github.com/TUOVAProject/tuova-sensor-etl
+
+### Sensor data - further processing
+
+- https://github.com/TUOVAProject/tuova_machinedata_processing

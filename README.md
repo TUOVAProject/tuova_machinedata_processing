@@ -93,9 +93,9 @@ _(this part assumes you have an Apache Airflow server running and able to access
 
 If nothing in this README (or the code) makes sense, feel free to improve.
 
-## Licence
+## LICENSE
 
-See [LICENCE.md](LICENCE.md)
+See [LICENSE](LICENSE)
 
 ## Additional Information
 

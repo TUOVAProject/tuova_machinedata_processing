@@ -1,4 +1,4 @@
-# tuova_machinedata_processing
+# TUOVA Machine Data Processing
 
 > ## IMPORTANT!
 >
